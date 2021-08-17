@@ -65,10 +65,9 @@
 												</svg></span>
 												
 										</a>
-										<!--end::Nav link-->
 									</li>
 
-									@if (Route::has('admin.web.*'))
+									@if (!Route::has('admin.web.*'))
 									<!--begin::Site web-->
 									<li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="Sitio web">
 										<!--begin::Nav link-->
@@ -85,11 +84,10 @@
 											</span>
 											
 										</a>
-										<!--end::Nav link-->
 									</li>
 									@endif
 
-                                    @if (Route::has('admin.blog.*'))
+                                    @if (!Route::has('admin.blog.*'))
 									<!--begin::Blogs-->
 									<li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="Blogs">
 										<!--begin::Nav link-->
@@ -104,11 +102,11 @@
 											</svg></span>
 											
 										</a>
-										<!--end::Nav link-->
 									</li>
                                     @endif
-									
-									@if (Route::has('admin.shop.*'))
+
+
+									@if (!Route::has('admin.shop.*'))
 									<!--begin::E-commerce-->
 									<li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="E-commerce">
 										<!--begin::Nav link-->
@@ -123,7 +121,28 @@
 											</svg></span>
 											
 										</a>
-										<!--end::Nav link-->
+									</li>
+									@endif
+
+
+									@if (!Route::has('admin.crm.*'))
+									<!--begin::CRM-->
+									<li class="nav-item mb-2" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="right" data-bs-dismiss="click" title="CRM">
+										<!--begin::Nav link-->
+										<a class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-400 btn-active-light" data-bs-toggle="tab" href="#kt_aside_nav_tab_crm">
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<rect x="0" y="0" width="24" height="24"></rect>
+														<rect fill="#000000" opacity="0.3" x="7" y="4" width="3" height="13" rx="1.5"></rect>
+														<rect fill="#000000" opacity="0.3" x="12" y="9" width="3" height="8" rx="1.5"></rect>
+														<path d="M5,19 L20,19 C20.5522847,19 21,19.4477153 21,20 C21,20.5522847 20.5522847,21 20,21 L4,21 C3.44771525,21 3,20.5522847 3,20 L3,4 C3,3.44771525 3.44771525,3 4,3 C4.55228475,3 5,3.44771525 5,4 L5,19 Z" fill="#000000" fill-rule="nonzero"></path>
+														<rect fill="#000000" opacity="0.3" x="17" y="11" width="3" height="6" rx="1.5"></rect>
+													</g>
+												</svg>
+											</span>
+											
+										</a>
 									</li>
 									@endif
 									
@@ -140,13 +159,9 @@
 											</svg></span>
 											
 										</a>
-										<!--end::Nav link-->
 									</li>
-									
 								</ul>
-								
 							</div>
-							
 						</div>
 						
 						<!--begin::Footer-->
@@ -209,7 +224,6 @@
 								</div>
 							</div>
 						</div>
-						
 					</div>
 					
 
@@ -233,7 +247,7 @@
 												<!--begin::Items-->
 												<div class="mb-10">
 
-													@if (Route::has('admin.blog.*'))
+													@if (!Route::has('admin.blog.*'))
 													<!--begin::Blog-->
 													<a href="#" class="custom-list d-flex align-items-center px-5 py-4 bg-hove-primary">
 														<!--begin::Symbol-->
@@ -261,7 +275,7 @@
 													</a>
 													@endif
 													
-													@if (Route::has('admin.shop.*'))
+													@if (!Route::has('admin.shop.*'))
 													<!--begin::E-commerce-->
 													<a href="#" class="custom-list d-flex align-items-center px-5 py-4 bg-hove-primary">
 														<!--begin::Symbol-->
@@ -286,13 +300,13 @@
 													</a>
 													@endif	
 
-													@if (Route::has('admin.crm.*'))
+													@if (!Route::has('admin.crm.*'))
 													<!--begin::CRM-->
 													<a href="#" class="custom-list d-flex align-items-center px-5 py-4 bg-hove-primary">
 														<!--begin::Symbol-->
 														<div class="symbol symbol-40px me-5">
 															<span class="symbol-label">
-																<span class="svg-icon svg-icon-3x me-10">
+																<span class="svg-icon svg-icon-2">
 																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																			<rect x="0" y="0" width="24" height="24"></rect>
@@ -321,7 +335,7 @@
 
 										</div>
 
-										@if (Route::has('admin.web.*'))
+										@if (!Route::has('admin.web.*'))
 										<!--begin::Website-->
 										<div class="tab-pane fade" id="kt_aside_nav_tab_website" role="tabpanel">
 											<div class="m-0">
@@ -528,7 +542,7 @@
 										</div>
 										@endif
 									
-										@if (Route::has('admin.blog.*'))
+										@if (!Route::has('admin.blog.*'))
 										<!--begin::Blog-->
 										<div class="tab-pane fade" id="kt_aside_nav_tab_blog" role="tabpanel">
 											<div class="m-0">
@@ -643,7 +657,7 @@
 										</div>
 										@endif
 										
-										@if (Route::has('admin.shop.*'))
+										@if (!Route::has('admin.shop.*'))
 										<!--begin::Tab Ecommerce-->
 										<div class="tab-pane fade" id="kt_aside_nav_tab_ecommerce" role="tabpanel">
 											<div class="m-0">
@@ -750,7 +764,7 @@
 										</div>
 										@endif
 
-										@if (Route::has('admin.crm.*'))
+										@if (!Route::has('admin.crm.*'))
 										<!--begin::Tab CRM-->
 										<div class="tab-pane fade" id="kt_aside_nav_tab_crm" role="tabpanel">
 											<div class="m-0">
@@ -762,10 +776,10 @@
 											<div class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5 px-6 my-5 my-lg-0" id="kt_aside_menu" data-kt-menu="true">
 												<div id="" class="menu-fit">
 
-													<!-- Prospect -->
+													<!-- CRM -->
 													<div class="menu-item">
 														<div class="menu-content pb-2">
-															<span class="menu-section text-muted text-uppercase fs-8 ls-1">Prospectos</span>
+															<span class="menu-section text-muted text-uppercase fs-8 ls-1">CRM</span>
 														</div>
 													</div>
 													<div class="menu-item">
@@ -779,13 +793,8 @@
 																</svg></span>
 																
 															</span>
-															<span class="menu-title">Portada</span>
+															<span class="menu-title">Prospectos</span>
 														</a>
-													</div>
-													<div class="menu-item">
-														<div class="menu-content pt-8 pb-2">
-															<span class="menu-section text-muted text-uppercase fs-8 ls-1">E-Commerce</span>
-														</div>
 													</div>
 													<div class="menu-item">
 														<a class="menu-link" href="#">
@@ -800,7 +809,7 @@
 																</svg></span>
 																
 															</span>
-															<span class="menu-title">Pedidos</span>
+															<span class="menu-title">Clientes</span>
 														</a>
 													</div>
 													<div class="menu-item">
@@ -815,7 +824,7 @@
 																</svg></span>
 																
 															</span>
-															<span class="menu-title">Categorias</span>
+															<span class="menu-title">Proveedores</span>
 														</a>
 													</div>
 													<div class="menu-item">
@@ -823,31 +832,31 @@
 															<span class="menu-icon">
 																<i class="fa fa-certificate"></i>
 															</span>
-															<span class="menu-title">Marcas</span>
+															<span class="menu-title">Tipos de servicios</span>
 														</a>
 													</div>
 													<div class="menu-item">
 														<a class="menu-link" href="#">
 															<span class="menu-icon">
-																<i class="fa fa-transgender"></i>
+																<i class="fa fa-star"></i>
 															</span>
-															<span class="menu-title">Género</span>
+															<span class="menu-title">Servicios</span>
 														</a>
 													</div>
 													<div class="menu-item">
 														<a class="menu-link" href="#">
 															<span class="menu-icon">
-																<!--begin::Svg Icon | path: https://preview.keenthemes.com/metronic8/demo7/assets/media/icons/duotone/Shopping/Cart3.svg-->
-																<span class="svg-icon svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																		<rect x="0" y="0" width="24" height="24"/>
-																		<path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-																		<path d="M3.5,9 L20.5,9 C21.0522847,9 21.5,9.44771525 21.5,10 C21.5,10.132026 21.4738562,10.2627452 21.4230769,10.3846154 L17.7692308,19.1538462 C17.3034221,20.271787 16.2111026,21 15,21 L9,21 C7.78889745,21 6.6965779,20.271787 6.23076923,19.1538462 L2.57692308,10.3846154 C2.36450587,9.87481408 2.60558331,9.28934029 3.11538462,9.07692308 C3.23725479,9.02614384 3.36797398,9 3.5,9 Z M12,17 C13.1045695,17 14,16.1045695 14,15 C14,13.8954305 13.1045695,13 12,13 C10.8954305,13 10,13.8954305 10,15 C10,16.1045695 10.8954305,17 12,17 Z" fill="#000000"/>
-																	</g>
-																</svg></span>
-																
+																<i class="fa fa-file"></i>
 															</span>
-															<span class="menu-title">Productos</span>
+															<span class="menu-title">Cotizaciones</span>
+														</a>
+													</div>
+													<div class="menu-item">
+														<a class="menu-link" href="#">
+															<span class="menu-icon">
+																<i class="fa fa-calendar"></i>
+															</span>
+															<span class="menu-title">Calendario</span>
 														</a>
 													</div>
 
