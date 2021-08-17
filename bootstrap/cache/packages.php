@@ -6,6 +6,13 @@
       0 => 'Aprendible\\StorageLinkRoute\\StorageLinkRouteServiceProvider',
     ),
   ),
+  'cviebrock/eloquent-sluggable' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 
