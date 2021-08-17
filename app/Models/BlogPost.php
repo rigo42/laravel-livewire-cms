@@ -12,10 +12,21 @@ class BlogPost extends Model
 
     protected $guarded = [];
 
+    //Logs
+    protected static $logName = 'Blog';
+    protected static $logAttributes = ['*'];
+    protected static $logOnlyDirty = true;
+    protected static $submitEmptyLogs = false;
+
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Un post de blog ha sido {$eventName}";
+    }
+
     public function getRouteKeyName(){
         return 'slug';
     }
-
+    
     public function sluggable(): array
     {
         return [
