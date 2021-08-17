@@ -1,0 +1,8 @@
+<?php
+
+use App\Http\Controllers\WelcomeController;
+use Illuminate\Support\Facades\Route;
+
+//Welcome
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+
