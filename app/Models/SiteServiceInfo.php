@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SiteServiceInfo extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
 }

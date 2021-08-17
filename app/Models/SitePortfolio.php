@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class SitePortfolio extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    //1:N
+    public function images(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
