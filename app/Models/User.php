@@ -39,8 +39,8 @@ class User extends Authenticatable
     ];
 
     
-    //1:N
-    public function images(){
+    //1:1
+    public function image(){
         return $this->morphOne(Image::class, 'imageable');
     }
 }

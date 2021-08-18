@@ -19,44 +19,53 @@
                 </a>
             </div>
             
-            <!-- About -->
-            <div class="menu-item">
-                <div class="menu-content pt-8 pb-2">
-                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Nosotros</span>
+            @if (Route::has('admin.team.index') || Route::has('admin.client.index'))
+                <!-- About -->
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Nosotros</span>
+                    </div>
                 </div>
-            </div>
-            <div class="menu-item">
-                <a class="menu-link {{ active('admin.team.index') }}" href="{{ route('admin.team.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa fa-users"></i>
-                    </span>
-                    <span class="menu-title">Equipo</span>
-                </a>
-            </div>
-            <div class="menu-item">
-                <a class="menu-link {{ active('admin.client.index') }}" href="{{ route('admin.client.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa fa-users"></i>
-                    </span>
-                    <span class="menu-title">Clientes</span>
-                </a>
-            </div>
-
-            <!-- Services -->
-            <div class="menu-item">
-                <div class="menu-content pt-8 pb-2">
-                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Servicios</span>
+                @if (Route::has('admin.team.index'))
+                    <div class="menu-item">
+                        <a class="menu-link {{ active('admin.team.index') }}" href="{{ route('admin.team.index') }}">
+                            <span class="menu-icon">
+                                <i class="fa fa-users"></i>
+                            </span>
+                            <span class="menu-title">Equipo</span>
+                        </a>
+                    </div>
+                @endif
+                @if (Route::has('admin.client.index'))
+                <div class="menu-item">
+                    <a class="menu-link {{ active('admin.client.index') }}" href="{{ route('admin.client.index') }}">
+                        <span class="menu-icon">
+                            <i class="fa fa-users"></i>
+                        </span>
+                        <span class="menu-title">Clientes</span>
+                    </a>
                 </div>
-            </div>
-            <div class="menu-item">
-                <a class="menu-link {{ active('admin.service.index') }}" href="{{ route('admin.service.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa fa-star"></i>
-                    </span>
-                    <span class="menu-title">Servicios</span>
-                </a>
-            </div>
+                @endif
+            @endif
 
+            @if (Route::has('admin.service.index'))
+                <!-- Services -->
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Servicios</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link {{ active('admin.service.index') }}" href="{{ route('admin.service.index') }}">
+                        <span class="menu-icon">
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <span class="menu-title">Servicios</span>
+                    </a>
+                </div>
+            @endif
+
+            @if (Route::has('admin.evidence.index'))
             <!-- Portfolio -->
             <div class="menu-item">
                 <div class="menu-content pt-8 pb-2">
@@ -71,7 +80,9 @@
                     <span class="menu-title">Evidencias</span>
                 </a>
             </div>
+            @endif
             
+            @if (Route::has('admin.contact.index'))
             <!-- Contact -->
             <div class="menu-item">
                 <div class="menu-content pt-8 pb-2">
@@ -86,37 +97,46 @@
                     <span class="menu-title">Contacto</span>
                 </a>
             </div>
+            @endif
 
-             <!-- Blog -->
-             <div class="menu-item">
-                <div class="menu-content pt-8 pb-2">
-                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog</span>
+            @if (Route::has('admin.blog.index') || Route::has('admin.blog-category.index') || Route::has('admin.blog-tag.index'))
+                <!-- Blog -->
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog</span>
+                    </div>
                 </div>
-            </div>
-            <div class="menu-item">
-                <a class="menu-link {{ active('admin.blog-category.index') }}" href="{{ route('admin.blog-category.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa fa-bookmark"></i>
-                    </span>
-                    <span class="menu-title">Categorías</span>
-                </a>
-            </div>
-            <div class="menu-item">
-                <a class="menu-link {{ active('admin.blog-tag.index') }}" href="{{ route('admin.blog-tag.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa fa-tags"></i>
-                    </span>
-                    <span class="menu-title">Etiquetas</span>
-                </a>
-            </div>
-            <div class="menu-item">
-                <a class="menu-link {{ active('admin.blog.index') }}" href="{{ route('admin.blog.index') }}">
-                    <span class="menu-icon">
-                        <i class="fa fa-book"></i>
-                    </span>
-                    <span class="menu-title">Blogs</span>
-                </a>
-            </div>
+                @if (Route::has('admin.blog-category.index'))
+                    <div class="menu-item">
+                        <a class="menu-link {{ active('admin.blog-category.index') }}" href="{{ route('admin.blog-category.index') }}">
+                            <span class="menu-icon">
+                                <i class="fa fa-bookmark"></i>
+                            </span>
+                            <span class="menu-title">Categorías</span>
+                        </a>
+                    </div>
+                @endif
+                @if (Route::has('admin.blog-tag.index'))
+                    <div class="menu-item">
+                        <a class="menu-link {{ active('admin.blog-tag.index') }}" href="{{ route('admin.blog-tag.index') }}">
+                            <span class="menu-icon">
+                                <i class="fa fa-tags"></i>
+                            </span>
+                            <span class="menu-title">Etiquetas</span>
+                        </a>
+                    </div>
+                @endif
+                @if (Route::has('admin.blog.index'))
+                    <div class="menu-item">
+                        <a class="menu-link {{ active('admin.blog.index') }}" href="{{ route('admin.blog.index') }}">
+                            <span class="menu-icon">
+                                <i class="fa fa-book"></i>
+                            </span>
+                            <span class="menu-title">Blogs</span>
+                        </a>
+                    </div>
+                @endif
+            @endif
 
         </div>
         <!--end::Menu-->

@@ -1,10 +1,10 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Dashboard')
+@section('title', 'Equipo')
 
 @section('content')
- <!--begin::Content-->
- <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 
     <div class="toolbar" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
@@ -14,12 +14,7 @@
         </div>
     </div>
 
-    <div class="post d-flex flex-column-fluid" id="kt_post">
-        <div id="kt_content_container" class="container">
-            
-        </div>
-    </div>
+    @livewire('admin.about.team.index')
     
 </div>
-<!--end::Content-->
 @endsection

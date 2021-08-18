@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 //About
-Route::resource('/team', TeamController::class)->names('team');
+Route::resource('/equipo', TeamController::class)->parameters(['equipo' => 'person'])->names('team');
 Route::resource('/clientes', TeamController::class)->parameters(['clientes' => 'client'])->names('client');
 
 //Service
