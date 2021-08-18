@@ -7,7 +7,7 @@
                     <div class="card-title">
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="fa fa-search position-absolute ms-6"></i>
-                            <input type="text" class="form-control form-control-solid  ps-14" placeholder="Buscar..." />
+                            <input wire:model="search" type="search" class="form-control form-control-solid  ps-14" placeholder="Buscar..." />
                         </div>
                     </div>
                     
@@ -21,44 +21,58 @@
                             <thead>
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">Persona</th>
-                                    <th class="min-w-125px">Puesto</th>
+                                    <th class="min-w-125px">Facebook</th>
+                                    <th class="min-w-125px">Linkedin</th>
                                     <th class="min-w-125px">Biografía</th>
                                     <th class="min-w-125px">Registrado</th>
                                     <th class="text-end min-w-100px">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-bold">
+                                @foreach ($team as $person)
                                 <tr>
                                     <td class="d-flex align-items-center">
                                         <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                             <a href="#">
+                                                @if($person->image)
                                                 <div class="symbol-label">
-                                                    <img src="assets/media/avatars/150-1.jpg" alt="Emma Smith" class="w-100" />
+                                                    <img src="{{ Storage::url($person->image->url) }}" alt="{{ $person->name }}" class="w-100" />
                                                 </div>
+                                                @else
+                                                <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                                    <a>
+                                                        <div class="symbol-label fs-3 bg-light-primary text-primary">{{ $person->name[0] }}</div>
+                                                    </a>
+                                                </div>
+                                                @endif                                                
                                             </a>
                                         </div>
                                         <div class="d-flex flex-column">
-                                            <a href="#" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-                                            <span>e.smith@kpmg.com.au</span>
+                                            <a class="text-gray-800 mb-1">{{ $person->name }}</a>
+                                            <span>{{ $person->puesto }}</span>
                                         </div>
                                     </td>
-                                    <td>Administrator</td>
-                                    <td>
-                                        <div class="badge badge-light fw-bolder">Yesterday</div>
-                                    </td>
-                                    <td>10 Nov 2021, 2:40 pm</td>
+                                    <td>{{ $person->url_facebook }}</td>
+                                    <td>{{ $person->url_linkedin }}</td>
+                                    <td>{{ substr($person->biography, 0, 30) }}...</td>
+                                    <td>{{ $person->dateToString() }}</td>
+
                                     <td class="text-end">
-                                        <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end"><i class="pl-2 bi bi-three-dots fs-3"></i></a>
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
+                                        <a href="#" class="btn btn-light btn-active-light-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="pl-2 bi bi-three-dots fs-3"></i>
+                                        </a>
+                                        <div class="dropdown-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4">
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Edit</a>
+                                                <a href="#" class="menu-link px-3"> Editar</a>
                                             </div>
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                                <a href="#" class="menu-link px-3 text-danger"> Eliminar</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
+                                
                             </tbody>
                         </table>
                     </div>

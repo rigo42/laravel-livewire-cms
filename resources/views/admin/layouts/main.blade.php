@@ -15,11 +15,12 @@
 		<link rel="canonical" href="Https://preview.keenthemes.com/metronic8" />
 		<link rel="shortcut icon" href="{{ asset('assets/admin') }}/media/logos/favicon.ico" />
 		
-		
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="{{ asset('assets/admin') }}/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/admin') }}/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/admin') }}/css/custom.css" rel="stylesheet" type="text/css" />
 
+		@livewireStyles
 	</head>
 	
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
@@ -42,5 +43,13 @@
 		
 		<!--begin::Page Custom Javascript(used by this page)-->
 		<script src="{{ asset('assets/admin') }}/js/custom/widgets.js"></script>
+		
+		@livewireScripts
+
+		<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+		<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+		<x-livewire-alert::scripts />
 	</body>
 </html>

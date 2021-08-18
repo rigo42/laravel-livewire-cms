@@ -17,7 +17,7 @@
                 
                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                     
-                    @livewire('admin.about.team.form', ['method' => 'store'])
+                    @livewire('admin.about.team.form', ['method' => 'store'], key('create'))
 
                 </div>
             </div>

@@ -29,6 +29,8 @@ License: For each use you must have a valid license purchased only from above li
 		<link href="{{ asset('assets/admin') }}/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/admin') }}/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
+
+		
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -61,6 +63,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Global Javascript Bundle(used by all pages)-->
 		<script src="{{ asset('assets/admin') }}/plugins/global/plugins.bundle.js"></script>
 		<script src="{{ asset('assets/admin') }}/js/scripts.bundle.js"></script>
+
 	</body>
 	<!--end::Body-->
 </html>
