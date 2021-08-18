@@ -12,22 +12,19 @@ License: For each use you must have a valid license purchased only from above li
 -->
 <html lang="en">
 	<!--begin::Head-->
-	<head><base href="../../../">
-		<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
-		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
-		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+	<head>
+		<title>@yield('title')</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta charset="utf-8" />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:type" content="article" />
-		<meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
-		<meta property="og:url" content="https://keenthemes.com/metronic" />
-		<meta property="og:site_name" content="Keenthemes | Metronic" />
-		<link rel="canonical" href="Https://preview.keenthemes.com/metronic8" />
-		<link rel="shortcut icon" href="{{ asset('assets/admin') }}/media/logos/favicon.ico" />
-		<!--begin::Fonts-->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" />
-		<!--end::Fonts-->
+		<meta property="og:locale" content="es" />
+		<meta property="og:title" content="Login - {{ config('app.name') }}" />
+		<meta property="og:url" content="{{ config('app.url') }}" />
+		<meta property="og:site_name" content="{{ config('app.name') }}" />
+		<link rel="canonical" href="{{ config('app.url') }}" />
+		<link rel="shortcut icon" href="{{ config('app.ico') }}" />
+		
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="{{ asset('assets/admin') }}/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/admin') }}/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -39,32 +36,23 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Main-->
 		<div class="d-flex flex-column flex-root">
 			<!--begin::Authentication - Sign-in -->
-			<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url({{ asset('assets/admin') }}/media/illustrations/development-hd.png)">
+			<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url({{asset('assets/admin')}}/media/bg/bg-3.jpg);")>
 				<!--begin::Content-->
 				<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 					<!--begin::Logo-->
-					<a href="../../demo7/dist/index.html" class="mb-12">
+					<a href="{{ route('login') }}" class="mb-12">
 						<img alt="Logo" src="{{ config('app.logo') }}" class="h-45px" />
 					</a>
 					<!--end::Logo-->
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+						
 						@yield('content')
+
 					</div>
 					<!--end::Wrapper-->
 				</div>
-				<!--end::Content-->
-				<!--begin::Footer-->
-				<div class="d-flex flex-center flex-column-auto p-10">
-					<!--begin::Links-->
-					<div class="d-flex align-items-center fw-bold fs-6">
-						<a href="https://keenthemes.com" class="text-muted text-hover-primary px-2">About</a>
-						<a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a>
-						<a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a>
-					</div>
-					<!--end::Links-->
-				</div>
-				<!--end::Footer-->
+				<!--end::Content-->>
 			</div>
 			<!--end::Authentication - Sign-in-->
 		</div>
@@ -73,13 +61,6 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Global Javascript Bundle(used by all pages)-->
 		<script src="{{ asset('assets/admin') }}/plugins/global/plugins.bundle.js"></script>
 		<script src="{{ asset('assets/admin') }}/js/scripts.bundle.js"></script>
-		<!--end::Global Javascript Bundle-->
-		<!--begin::Page Custom Javascript(used by this page)-->
-		<script >
-			"use strict";var KTSigninGeneral=function(){var t,e,i;return{init:function(){t=document.querySelector("#kt_sign_in_form"),e=document.querySelector("#kt_sign_in_submit"),i=FormValidation.formValidation(t,{fields:{email:{validators:{notEmpty:{message:"Email address is required"},emailAddress:{message:"The value is not a valid email address"}}},password:{validators:{notEmpty:{message:"The password is required"}}}},plugins:{trigger:new FormValidation.plugins.Trigger,bootstrap:new FormValidation.plugins.Bootstrap5({rowSelector:".fv-row"})}}),e.addEventListener("click",(function(n){n.preventDefault(),i.validate().then((function(i){"Valid"==i?(e.setAttribute("data-kt-indicator","on"),e.disabled=!0,setTimeout((function(){e.removeAttribute("data-kt-indicator"),e.disabled=!1,Swal.fire({text:"You have successfully logged in!",icon:"success",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{confirmButton:"btn btn-primary"}}).then((function(e){e.isConfirmed&&(t.querySelector('[name="email"]').value="",t.querySelector('[name="password"]').value="")}))}),2e3)):Swal.fire({text:"Sorry, looks like there are some errors detected, please try again.",icon:"error",buttonsStyling:!1,confirmButtonText:"Ok, got it!",customClass:{confirmButton:"btn btn-primary"}})}))}))}}}();KTUtil.onDOMContentLoaded((function(){KTSigninGeneral.init()}));
-		</script>
-		<!--end::Page Custom Javascript-->
-		<!--end::Javascript-->
 	</body>
 	<!--end::Body-->
 </html>

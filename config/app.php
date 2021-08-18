@@ -17,6 +17,8 @@ return [
 
     'logo' => env('APP_LOGO', ''),
 
+    'ico' => env('APP_ICO', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
