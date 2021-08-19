@@ -18,8 +18,8 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('position');
             $table->longText('biography')->nullable();
-            $table->string('url_facebook')->nullable();
-            $table->string('url_linkedin')->nullable();
+            $table->string('link_facebook')->nullable();
+            $table->string('link_linkedin')->nullable();
             $table->timestamps();
         });
     }

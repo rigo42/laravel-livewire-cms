@@ -17,16 +17,7 @@ class TeamController extends Controller
         return view('admin.about.team.index');
     }
 
-    public function create(){
-        $team = new Team();
-        return view('admin.about.team.create', compact('team'));
-    }
-
-    public function show(Team $team){
-        return view('admin.about.team.show', compact('team'));
-    }
-
-    public function edit(Team $team){
-        return view('admin.about.team.edit', compact('team'));
+    public function show(Team $person){
+        return view('admin.about.team.show', compact('person'));
     }
 }

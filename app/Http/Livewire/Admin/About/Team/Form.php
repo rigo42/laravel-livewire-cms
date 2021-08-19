@@ -14,7 +14,6 @@ class Form extends Component
 
     use WithFileUploads;
 
-   
     public $method;
     public $team;
 
@@ -31,10 +30,9 @@ class Form extends Component
         return [
             'team.name' => 'required',
             'team.position' => 'required',
-            'team.email' => 'required|email',
             'team.biography' => 'nullable',
-            'team.url_facebook' => 'nullable',
-            'team.url_linkedin' => 'nullable',
+            'team.link_facebook' => 'nullable',
+            'team.link_linkedin' => 'nullable',
         ];
 
     }
@@ -49,7 +47,7 @@ class Form extends Component
         $this->team->save();
         $this->saveImage();
         $this->flash('success', 'Persona agregada al equipo con exito');
-        $this->emit('render');
+        // return redirect()->route('team.show', $this->team);
     }
 
     public function update(){
@@ -57,7 +55,7 @@ class Form extends Component
         $this->team->update();
         $this->saveImage();
         $this->flash('success', 'Persona actualizada con exito');
-        return redirect()->route('team.show', $this->team);
+        // return redirect()->route('team.show', $this->team);
     }
 
 

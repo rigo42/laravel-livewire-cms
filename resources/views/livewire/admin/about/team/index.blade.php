@@ -62,15 +62,20 @@
                                             <i class="pl-2 bi bi-three-dots fs-3"></i>
                                         </a>
                                         <div class="dropdown-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4">
+                                            
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3"> Editar</a>
+                                                <a href="#" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $person->id }}"> Editar</a>
                                             </div>
+
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3 text-danger"> Eliminar</a>
+                                                <a href="#" onclick="event.preventDefault(); confirmDestroy({{ $person->id }})" class="menu-link px-3 text-danger"> Eliminar</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
+
+                                @include('admin.about.team.edit')
+                                
                                 @endforeach
                                 
                             </tbody>
@@ -81,4 +86,27 @@
             </div>
         </div>
     </div>
+
+    @push('footer')
+    <script>
+        function confirmDestroy(id){
+            swal.fire({
+                title: "¿Estas seguro?",
+                text: "No podrá recuperar este personal.",
+                icon: "warning",
+                buttonsStyling: false,
+                showCancelButton: true,
+                confirmButtonText: "<i class='fa fa-trash'></i> <span class='font-weight-bold'>Si, eliminar</span>",
+                cancelButtonText: "<i class='fas fa-arrow-circle-left'></i>  <span class='text-dark font-weight-bold'>No, cancelar",
+                reverseButtons: true,
+                cancelButtonClass: "btn btn-light-secondary font-weight-bold",
+                confirmButtonClass: "btn btn-danger",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    @this.call('destroy', id);
+                }
+            });
+        }
+    </script>
+    @endpush
 </div>
