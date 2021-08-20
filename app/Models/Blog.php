@@ -6,10 +6,11 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Blog extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, LogsActivity; 
 
     protected $guarded = [];
 

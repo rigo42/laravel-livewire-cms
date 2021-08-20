@@ -9,19 +9,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Portfolio extends Model
 {
-    use HasFactory, LogsActivity;
+    use HasFactory, LogsActivity; 
 
     protected $guarded = [];
-
-    //1:1
-    public function image(){
-        return $this->morphOne(Image::class, 'imageable');
-    }
-
-    //1:N
-    public function images(){
-        return $this->morphMany(Image::class, 'imageable');
-    }
 
     //Logs
     protected static $logName = 'Portafolio';
@@ -32,6 +22,20 @@ class Portfolio extends Model
     public function getDescriptionForEvent(string $eventName): string
     {
         return "Una evidencía de portafolio ha sido {$eventName}";
+    }
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
+    //1:1
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    //1:N
+    public function images(){
+        return $this->morphMany(Image::class, 'imageable');
     }
 
     public function dateToString(){

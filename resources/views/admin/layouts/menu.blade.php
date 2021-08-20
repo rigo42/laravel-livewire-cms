@@ -65,7 +65,7 @@
                 </div>
             @endif
 
-            @if (Route::has('admin.evidence.index'))
+            @if (Route::has('admin.portfolio.index'))
             <!-- Portfolio -->
             <div class="menu-item">
                 <div class="menu-content pt-8 pb-2">
@@ -73,11 +73,11 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link {{ active('admin.evidence.*') }}" href="{{ route('admin.evidence.index') }}">
+                <a class="menu-link {{ active('admin.portfolio.*') }}" href="{{ route('admin.portfolio.index') }}">
                     <span class="menu-icon">
                         <i class="fa fa-briefcase"></i>
                     </span>
-                    <span class="menu-title">Evidencias</span>
+                    <span class="menu-title">Portafolio</span>
                 </a>
             </div>
             @endif

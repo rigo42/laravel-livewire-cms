@@ -20,8 +20,8 @@
                                                 <label class="required d-block fw-bold fs-6 mb-5">Imágen</label>
                                                 <div class="image-input image-input-outline">
                                                     <div class="image-input-wrapper w-125px h-125px" @if ($imageTmp) style="background-image: url('{{ $imageTmp->temporaryUrl() }}')"
-                                                        @elseif($service->image)
-                                                            style="background-image: url('{{ Storage::url($service->image->url) }}')"
+                                                        @elseif($evidence->image)
+                                                            style="background-image: url('{{ Storage::url($evidence->image->url) }}')"
                                                         @else    
                                                             style="background-image: url('{{ asset('assets/admin/media/bg/blank.jpg') }}')" 
                                                         @endif>
@@ -46,7 +46,7 @@
                                                     </div>
                                 
                                 
-                                                    @if ($imageTmp || $service->image)
+                                                    @if ($imageTmp || $evidence->image)
                                                         <label wire:click.prevent="removeImage()"
                                                             wire:loading.class="spinner spinner-primary spinner-sm" wire:target="removeImage"
                                                             title="Remover imagen"
@@ -64,32 +64,33 @@
                                 
                                             <div class="fv-row mb-7">
                                                 <label class="required fw-bold fs-6 mb-2">Nombre</label>
-                                                <input wire:model.defer="service.name" type="text" required
-                                                    class="@error('service.name') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
-                                                @error('service.name') <span class="text-danger">{{ $message }}</span> @enderror
+                                                <input wire:model.defer="evidence.name" type="text" required
+                                                    class="@error('evidence.name') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                                                @error('evidence.name') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
                                 
                                             <div class="fv-row mb-7" wire:ignore.self>
-                                                <label class="required fw-bold fs-6 mb-2">Fragmento</label>
-                                                <textarea wire:model.defer="service.fragment" cols="20" rows="4" class="form-control form-control-solid @error('service.company') is-invalid @enderror"></textarea>
-                                                @error('service.fragment') <span class="text-danger">{{ $message }}</span> @enderror
+                                                <label class="fw-bold fs-6 mb-2">Link de evidencía</label>
+                                                <input wire:model.defer="evidence.link" type="text" required
+                                                    class="@error('evidence.link') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                                                @error('evidence.link') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
 
                                             <div class="fv-row mb-7" >
                                                 <div wire:ignore wire:key="card-body">
                                                     <label class="fw-bold fs-6 mb-2">Contenido</label>
-                                                    <textarea class="body">{{ $service->body }}</textarea>
+                                                    <textarea class="body">{{ $evidence->body }}</textarea>
                                                 </div>
-                                                @error('service.body') <span class="text-danger">{{ $message }}</span> @enderror
+                                                @error('evidence.body') <span class="text-danger">{{ $message }}</span> @enderror
                                                 
                                             </div>
 
                                             <div class="fv-row mb-7">
                                                 <label class="fw-bold fs-6 mb-2">Palabras clave (SEO)</label>
-                                                <input wire:model.defer="service.meta_keywords" type="text"
-                                                    class="@error('service.meta_keywords') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                                                <input wire:model.defer="evidence.meta_keywords" type="text"
+                                                    class="@error('evidence.meta_keywords') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
                                                     <div class="fs-7 fw-bold text-muted">Cada palabra deberá de ser separada con comas</div>
-                                                @error('service.meta_keywords') <span class="text-danger">{{ $message }}</span> @enderror
+                                                @error('evidence.meta_keywords') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
 
                                             <div class="text-center pt-15">
@@ -123,7 +124,7 @@
         .create(document.querySelector('.body'))
         .then(editor => {
             editor.model.document.on('change:data', (evt, data) => {
-                @this.set('service.body', editor.getData());
+                @this.set('evidence.body', editor.getData());
             });
         })
         .catch(error => {

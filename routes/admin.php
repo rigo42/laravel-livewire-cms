@@ -21,7 +21,7 @@ Route::resource('/clientes', ClientController::class)->parameters(['clientes' =>
 Route::resource('/servicios', ServiceController::class)->parameters(['servicios' => 'service'])->names('service');
 
 //Portfolio
-Route::resource('/portafolio', EvidenceController::class)->parameters(['portafolio' => 'evidence'])->names('evidence');
+Route::resource('/portafolio', EvidenceController::class)->parameters(['portafolio' => 'evidence'])->names('portfolio');
 
 //Contact
 Route::resource('/contacto', ContactController::class)->parameters(['contacto' => 'contact'])->names('contact');
