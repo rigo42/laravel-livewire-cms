@@ -15,7 +15,7 @@ class Index extends Component
 
 
     //Tools
-    public $perPage = 50;
+    public $perPage = 5;
     public $search;
     protected $queryString = ['search' => ['except' => '']];
 

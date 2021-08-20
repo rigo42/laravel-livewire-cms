@@ -15,24 +15,24 @@ class Form extends Component
     use WithFileUploads;
 
     public $method;
-    public $team;
+    public $person;
 
     //Tools
     public $imageTmp;
 
-    public function mount(Team $team, $method){
-        $this->team = $team;
+    public function mount(Team $person, $method){
+        $this->person = $person;
         $this->method = $method;    
     }
 
     protected function rules()
     {
         return [
-            'team.name' => 'required',
-            'team.position' => 'required',
-            'team.biography' => 'nullable',
-            'team.link_facebook' => 'nullable',
-            'team.link_linkedin' => 'nullable',
+            'person.name' => 'required',
+            'person.position' => 'required',
+            'person.biography' => 'nullable',
+            'person.link_facebook' => 'nullable',
+            'person.link_linkedin' => 'nullable',
         ];
 
     }
@@ -43,19 +43,20 @@ class Form extends Component
     }
 
     public function store(){
-        $this->validate();
-        $this->team->save();
+        $data = $this->validate();
+        $this->person->save();
         $this->saveImage();
-        $this->flash('success', 'Persona agregada al equipo con exito');
-        // return redirect()->route('team.show', $this->team);
+        $this->person = new Team();
+        $this->alert('success', 'Persona agregada al equipo con exito');
+        $this->emit('render');
     }
 
     public function update(){
         $this->validate();
-        $this->team->update();
+        $this->person->update();
         $this->saveImage();
-        $this->flash('success', 'Persona actualizada con exito');
-        // return redirect()->route('team.show', $this->team);
+        $this->alert('success', 'Persona actualizada con exito');
+        $this->emit('render');
     }
 
 
@@ -64,15 +65,15 @@ class Form extends Component
 
             $url = $this->imageTmp->store('public/team');
 
-            if($this->team->image){
-                if(Storage::exists($this->team->image->url)){
-                    Storage::delete($this->team->image->url);
+            if($this->person->image){
+                if(Storage::exists($this->person->image->url)){
+                    Storage::delete($this->person->image->url);
                 }
-                $this->team->image()->update([
+                $this->person->image()->update([
                     'url' => $url,
                 ]);
             }else{
-                $this->team->image()->create([
+                $this->person->image()->create([
                     'url' => $url,
                 ]);
             }
@@ -87,13 +88,13 @@ class Form extends Component
     }
 
     public function removeImage(){
-        if($this->team->image){
-            if(Storage::exists($this->team->image->url)){
-                Storage::delete($this->team->image->url);
+        if($this->person->image){
+            if(Storage::exists($this->person->image->url)){
+                Storage::delete($this->person->image->url);
             }
             
-            $this->team->image()->delete();
-            $this->team->image = null;
+            $this->person->image()->delete();
+            $this->person->image = null;
         }
         $this->reset('imageTmp');
         $this->alert('success', 'Imagen eliminada con exito');

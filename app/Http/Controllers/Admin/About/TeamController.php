@@ -16,8 +16,4 @@ class TeamController extends Controller
     public function index(){
         return view('admin.about.team.index');
     }
-
-    public function show(Team $person){
-        return view('admin.about.team.show', compact('person'));
-    }
 }
