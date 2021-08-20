@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\About\ClientController;
 use App\Http\Controllers\Admin\About\TeamController;
 use App\Http\Controllers\Admin\Blog\BlogCategoryController;
 use App\Http\Controllers\Admin\Blog\BlogController;
@@ -14,7 +15,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 //About
 Route::resource('/equipo', TeamController::class)->parameters(['equipo' => 'person'])->names('team');
-Route::resource('/clientes', TeamController::class)->parameters(['clientes' => 'client'])->names('client');
+Route::resource('/clientes', ClientController::class)->parameters(['clientes' => 'client'])->names('client');
 
 //Service
 Route::resource('/servicios', ServiceController::class)->parameters(['servicios' => 'service'])->names('service');

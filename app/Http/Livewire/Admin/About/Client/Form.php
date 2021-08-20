@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Admin\About\Team;
+namespace App\Http\Livewire\Admin\About\Client;
 
-use App\Models\Team;
-use Exception;
+use App\Models\Client;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -11,51 +10,47 @@ use Intervention\Image\Facades\Image;
 
 class Form extends Component
 {
-
     use WithFileUploads;
 
     public $method;
-    public $person;
+    public $client;
 
     //Tools
     public $imageTmp;
 
-    public function mount(Team $person, $method){
-        $this->person = $person;
+    public function mount(Client $client, $method){
+        $this->client = $client;
         $this->method = $method;    
     }
 
     protected function rules()
     {
         return [
-            'person.name' => 'required',
-            'person.position' => 'required',
-            'person.biography' => 'nullable',
-            'person.link_facebook' => 'nullable',
-            'person.link_linkedin' => 'nullable',
+            'client.name' => 'required',
+            'client.company' => 'nullable',
         ];
 
     }
 
     public function render()
     {
-        return view('livewire.admin.about.team.form');
+        return view('livewire.admin.about.client.form');
     }
 
     public function store(){
         $this->validate();
-        $this->person->save();
+        $this->client->save();
         $this->saveImage();
-        $this->person = new Team();
-        $this->alert('success', 'Persona agregada al equipo con exito');
+        $this->client = new Client();
+        $this->alert('success', 'cliente agregado con exito');
         $this->emit('render');
     }
 
     public function update(){
         $this->validate();
-        $this->person->update();
+        $this->client->update();
         $this->saveImage();
-        $this->alert('success', 'Persona actualizada con exito');
+        $this->alert('success', 'cliente actualizado con exito');
         $this->emit('render');
     }
 
@@ -63,17 +58,17 @@ class Form extends Component
     public function saveImage(){
         if($this->imageTmp){
 
-            $url = $this->imageTmp->store('public/team');
+            $url = $this->imageTmp->store('public/client');
 
-            if($this->person->image){
-                if(Storage::exists($this->person->image->url)){
-                    Storage::delete($this->person->image->url);
+            if($this->client->image){
+                if(Storage::exists($this->client->image->url)){
+                    Storage::delete($this->client->image->url);
                 }
-                $this->person->image()->update([
+                $this->client->image()->update([
                     'url' => $url,
                 ]);
             }else{
-                $this->person->image()->create([
+                $this->client->image()->create([
                     'url' => $url,
                 ]);
             }
@@ -88,16 +83,15 @@ class Form extends Component
     }
 
     public function removeImage(){
-        if($this->person->image){
-            if(Storage::exists($this->person->image->url)){
-                Storage::delete($this->person->image->url);
+        if($this->client->image){
+            if(Storage::exists($this->client->image->url)){
+                Storage::delete($this->client->image->url);
             }
             
-            $this->person->image()->delete();
-            $this->person->image = null;
+            $this->client->image()->delete();
+            $this->client->image = null;
         }
         $this->reset('imageTmp');
         $this->alert('success', 'Imagen eliminada con exito');
     }
-    
 }

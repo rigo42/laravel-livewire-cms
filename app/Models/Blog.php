@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -49,5 +50,9 @@ class Blog extends Model
     //N:M
     public function blogTags(){
         return $this->belongsToMany(BlogTag::class);
+    }
+
+    public function dateToString(){
+        return Carbon::parse($this->created_at)->toFormattedDateString();
     }
 }

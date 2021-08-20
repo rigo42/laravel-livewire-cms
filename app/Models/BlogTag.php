@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -26,5 +27,9 @@ class BlogTag extends Model
     //N:M
     public function blogPosts(){
         return $this->belongsToMany(BlogPost::class);
+    }
+
+    public function dateToString(){
+        return Carbon::parse($this->created_at)->toFormattedDateString();
     }
 }
