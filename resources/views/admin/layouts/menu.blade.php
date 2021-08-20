@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link {{ active('admin.dashboard.index') }}" href="{{ route('admin.dashboard.index') }}">
+                <a class="menu-link {{ active('admin.dashboard.*') }}" href="{{ route('admin.dashboard.index') }}">
                     <span class="menu-icon">
                         <i class="fab fa-buffer"></i>
                     </span>
@@ -28,7 +28,7 @@
                 </div>
                 @if (Route::has('admin.team.index'))
                     <div class="menu-item">
-                        <a class="menu-link {{ active('admin.team.index') }}" href="{{ route('admin.team.index') }}">
+                        <a class="menu-link {{ active('admin.team.*') }}" href="{{ route('admin.team.index') }}">
                             <span class="menu-icon">
                                 <i class="fa fa-users"></i>
                             </span>
@@ -38,7 +38,7 @@
                 @endif
                 @if (Route::has('admin.client.index'))
                 <div class="menu-item">
-                    <a class="menu-link {{ active('admin.client.index') }}" href="{{ route('admin.client.index') }}">
+                    <a class="menu-link {{ active('admin.client.*') }}" href="{{ route('admin.client.index') }}">
                         <span class="menu-icon">
                             <i class="fa fa-users"></i>
                         </span>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ active('admin.service.index') }}" href="{{ route('admin.service.index') }}">
+                    <a class="menu-link {{ active('admin.service.*') }}" href="{{ route('admin.service.index') }}">
                         <span class="menu-icon">
                             <i class="fa fa-star"></i>
                         </span>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link {{ active('admin.evidence.index') }}" href="{{ route('admin.evidence.index') }}">
+                <a class="menu-link {{ active('admin.evidence.*') }}" href="{{ route('admin.evidence.index') }}">
                     <span class="menu-icon">
                         <i class="fa fa-briefcase"></i>
                     </span>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link {{ active('admin.contact.index') }}" href="{{ route('admin.contact.index') }}">
+                <a class="menu-link {{ active('admin.contact.*') }}" href="{{ route('admin.contact.index') }}">
                     <span class="menu-icon">
                         <i class="fa fa-envelope"></i>
                     </span>
@@ -106,9 +106,9 @@
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog</span>
                     </div>
                 </div>
-                @if (Route::has('admin.blog-category.index'))
+                @if (Route::has('admin.blog-category.index')) 
                     <div class="menu-item">
-                        <a class="menu-link {{ active('admin.blog-category.index') }}" href="{{ route('admin.blog-category.index') }}">
+                        <a class="menu-link {{ active('admin.blog-category.*') }}" href="{{ route('admin.blog-category.index') }}">
                             <span class="menu-icon">
                                 <i class="fa fa-bookmark"></i>
                             </span>
@@ -118,7 +118,7 @@
                 @endif
                 @if (Route::has('admin.blog-tag.index'))
                     <div class="menu-item">
-                        <a class="menu-link {{ active('admin.blog-tag.index') }}" href="{{ route('admin.blog-tag.index') }}">
+                        <a class="menu-link {{ active('admin.blog-tag.*') }}" href="{{ route('admin.blog-tag.index') }}">
                             <span class="menu-icon">
                                 <i class="fa fa-tags"></i>
                             </span>
@@ -128,7 +128,7 @@
                 @endif
                 @if (Route::has('admin.blog.index'))
                     <div class="menu-item">
-                        <a class="menu-link {{ active('admin.blog.index') }}" href="{{ route('admin.blog.index') }}">
+                        <a class="menu-link {{ active('admin.blog.*') }}" href="{{ route('admin.blog.index') }}">
                             <span class="menu-icon">
                                 <i class="fa fa-book"></i>
                             </span>

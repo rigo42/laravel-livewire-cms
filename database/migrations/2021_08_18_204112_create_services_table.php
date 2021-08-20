@@ -18,6 +18,9 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->text('fragment');
             $table->longText('body')->nullable();
+            $table->text('slug');
+            $table->text('meta_keywords')->nullable();
+            $table->integer('view')->nullable()->default(0);
             $table->timestamps();
         });
     }

@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin\About\Team;
 
 use App\Models\Team;
-use Exception;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -44,6 +43,7 @@ class Form extends Component
 
     public function store(){
         $this->validate();
+        $this->validateImage();
         $this->person->save();
         $this->saveImage();
         $this->person = new Team();
@@ -53,12 +53,20 @@ class Form extends Component
 
     public function update(){
         $this->validate();
+        $this->validateImage();
         $this->person->update();
         $this->saveImage();
         $this->alert('success', 'Persona actualizada con exito');
         $this->emit('render');
     }
 
+    public function validateImage(){
+        if(!$this->person->image){
+            $this->validate([
+                'imageTmp' => 'required|image'
+            ]);
+        }
+    }
 
     public function saveImage(){
         if($this->imageTmp){

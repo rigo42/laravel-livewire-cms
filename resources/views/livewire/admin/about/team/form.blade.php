@@ -1,6 +1,6 @@
 <div>
     <form class="form">
-        <div wire:ignore.self class="d-flex flex-column scroll-y me-n7 pe-7" id="modal-create_scroll">
+        <div wire:ignore.self class="d-flex flex-column scroll-y me-n7 pe-7">
 
             @include('component.errors')
 
@@ -53,30 +53,35 @@
                 <label class="required fw-bold fs-6 mb-2">Nombre</label>
                 <input wire:model="person.name" type="text" required
                     class="@error('person.name') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                @error('person.name') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="fv-row mb-7">
                 <label class="required fw-bold fs-6 mb-2">Puesto</label>
                 <input wire:model.defer="person.position" type="text" required
                     class="@error('person.position') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                @error('person.position') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="fv-row mb-7">
                 <label class="fw-bold fs-6 mb-2">Biografía</label>
                 <textarea wire:model.defer="person.biography" class="form-control form-control-solid mb-3 mb-lg-0"
                     cols="30" rows="10"></textarea>
+                @error('person.biography') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="fv-row mb-7">
                 <label class="fw-bold fs-6 mb-2">Perfil de facebook</label>
                 <input wire:model.defer="person.link_facebook" type="text"
                     class="@error('person.link_facebook') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                @error('person.link_facebook') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="fv-row mb-7">
                 <label class="fw-bold fs-6 mb-2">Perfil de linkedin</label>
                 <input wire:model.defer="person.link_linkedin" type="text"
                     class="@error('person.link_linkedin') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                @error('person.link_linkedin') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
         </div>

@@ -14,7 +14,7 @@ class Index extends Component
     use WithPagination;
 
     //Tools
-    public $perPage = 5;
+    public $perPage = 50;
     public $search;
     protected $queryString = ['search' => ['except' => '']];
 

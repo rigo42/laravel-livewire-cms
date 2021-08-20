@@ -1,17 +1,18 @@
 <div>
     <form class="form">
-        <div wire:ignore.self class="d-flex flex-column scroll-y me-n7 pe-7" id="modal-create_scroll">
+        <div wire:ignore.self class="d-flex flex-column scroll-y me-n7 pe-7">
 
             @include('component.errors')
 
             <div class="fv-row mb-7">
-                <label class="d-block fw-bold fs-6 mb-5">Imágen</label>
+                <label class="required d-block fw-bold fs-6 mb-5">Imágen</label>
                 <div class="image-input image-input-outline">
                     <div class="image-input-wrapper w-125px h-125px" @if ($imageTmp) style="background-image: url('{{ $imageTmp->temporaryUrl() }}')"
-@elseif($client->image)
+                        @elseif($client->image)
                             style="background-image: url('{{ Storage::url($client->image->url) }}')"
-@else    
-                            style="background-image: url('{{ asset('assets/admin/media/users/blank.png') }}')" @endif>
+                        @else    
+                            style="background-image: url('{{ asset('assets/admin/media/users/blank.png') }}')" 
+                        @endif>
                     </div>
 
                     <div x-data="{ isUploading: false, progress: 0 }" x-on:livewire-upload-start="isUploading = true"
@@ -53,12 +54,14 @@
                 <label class="required fw-bold fs-6 mb-2">Nombre</label>
                 <input wire:model.defer="client.name" type="text" required
                     class="@error('client.name') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                @error('client.name') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="fv-row mb-7">
                 <label class="required fw-bold fs-6 mb-2">Empresa</label>
                 <input wire:model.defer="client.company" type="text" required
                     class="@error('client.company') is-invalid @enderror form-control form-control-solid mb-3 mb-lg-0" />
+                @error('client.company') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             
         </div>

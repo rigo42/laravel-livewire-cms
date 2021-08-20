@@ -39,6 +39,7 @@ class Form extends Component
 
     public function store(){
         $this->validate();
+        $this->validateImage();
         $this->client->save();
         $this->saveImage();
         $this->client = new Client();
@@ -48,12 +49,20 @@ class Form extends Component
 
     public function update(){
         $this->validate();
+        $this->validateImage();
         $this->client->update();
         $this->saveImage();
         $this->alert('success', 'cliente actualizado con exito');
         $this->emit('render');
     }
 
+    public function validateImage(){
+        if(!$this->client->image){
+            $this->validate([
+                'imageTmp' => 'required|image'
+            ]);
+        }
+    }
 
     public function saveImage(){
         if($this->imageTmp){

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Admin\About\Client;
+namespace App\Http\Livewire\Admin\Service;
 
-use App\Models\Client;
+use App\Models\Service;
 use Exception;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -20,9 +20,6 @@ class Index extends Component
     //Theme
     protected $paginationTheme = 'bootstrap';
 
-    //Listeners
-    protected $listeners = ['render'];
-
     public function updatingSearch()
     {
         $this->resetPage();
@@ -30,23 +27,25 @@ class Index extends Component
 
     public function render()
     {
-        $clients = Client::orderBy('id', 'desc');
+        $services = Service::orderBy('id', 'desc');
 
         if($this->search){
-            $clients = $clients->where('name', 'LIKE', "%{$this->search}%");
+            $services = $services->where('name', 'LIKE', "%{$this->search}%");
         }
 
-        $clients = $clients->paginate($this->perPage);
-        return view('livewire.admin.about.client.index', compact('clients'));
+        $services = $services->paginate($this->perPage);
+        return view('livewire.admin.service.index', compact('services'));
     }
 
-    public function destroy(Client $client)
+
+    public function destroy($id)
     {
+        $service = Service::findOrFail($id);
         try{
-            if($client->image && Storage::exists($client->image->url)){
-                Storage::delete($client->image->url);
+            if($service->image && Storage::exists($service->image->url)){
+                Storage::delete($service->image->url);
             }
-            $client->delete();
+            $service->delete();
             $this->alert('success', 'Eliminación con exito');
         }catch(Exception $e){
             $this->alert('error', 
