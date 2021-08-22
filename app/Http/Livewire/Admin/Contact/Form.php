@@ -47,7 +47,7 @@ class Form extends Component
     public function update(){
         $this->validate();
         $this->contact->update();
-        $this->alert('success', 'contacta actualizada con exito');
+        $this->alert('success', 'contacta actualizada con éxito');
         $this->emit('render');
     }
 

@@ -44,7 +44,7 @@ class Form extends Component
         $this->validateImage();
         $this->service->save();
         $this->saveImage();
-        $this->flash('success', 'Servicio agregado al equipo con exito');
+        $this->flash('success', 'Servicio agregado al equipo con éxito');
         return redirect()->route('admin.service.show', $this->service);
     }
 
@@ -53,7 +53,7 @@ class Form extends Component
         $this->validateImage();
         $this->service->update();
         $this->saveImage();
-        $this->flash('success', 'Servicio actualizado con exito');
+        $this->flash('success', 'Servicio actualizado con éxito');
         return redirect()->route('admin.service.show', $this->service);
     }
 
@@ -102,6 +102,6 @@ class Form extends Component
             $this->service->image = null;
         }
         $this->reset('imageTmp');
-        $this->alert('success', 'Imagen eliminada con exito');
+        $this->alert('success', 'Imagen eliminada con éxito');
     }
 }

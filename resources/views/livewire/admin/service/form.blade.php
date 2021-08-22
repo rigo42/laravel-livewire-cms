@@ -11,7 +11,7 @@
                         <!--begin::Card body-->
                         <div class="card-body p-12">
                             
-                                    <form class="form">
+                                    <div class="form">
                                         <div wire:ignore.self class="d-flex flex-column scroll-y me-n7 pe-7">
                                 
                                             @include('components.errors')
@@ -102,7 +102,7 @@
                                             </div>
 
                                         </div>
-                                    </form>
+                                    </div>
                             
                         </div>
                         <!--end::Card body-->

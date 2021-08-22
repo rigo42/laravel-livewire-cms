@@ -25,8 +25,8 @@ class BlogCategory extends Model
     }
 
     //N:M
-    public function blogPosts(){
-        return $this->belongsToMany(BlogPost::class);
+    public function blogs(){
+        return $this->belongsToMany(Blog::class);
     }
 
     public function dateToString(){

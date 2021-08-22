@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\Admin\About\Team;
+namespace App\Http\Livewire\Admin\Blog\Tag;
 
-use App\Models\Team;
+use App\Models\BlogTag;
 use Exception;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Index extends Component
 {
-
     use WithPagination;
 
     //Tools
@@ -31,23 +29,20 @@ class Index extends Component
 
     public function render()
     {
-        $team = Team::orderBy('id', 'desc');
+        $tags = BlogTag::orderBy('id', 'desc');
 
         if($this->search){
-            $team = $team->where('name', 'LIKE', "%{$this->search}%");
+            $tags = $tags->where('name', 'LIKE', "%{$this->search}%");
         }
 
-        $team = $team->paginate($this->perPage);
-        return view('livewire.admin.about.team.index', compact('team'));
+        $tags = $tags->paginate($this->perPage);
+        return view('livewire.admin.blog.tag.index', compact('tags'));
     }
 
-    public function destroy(Team $person)
+    public function destroy(BlogTag $tag)
     {
         try{
-            if($person->image && Storage::exists($person->image->url)){
-                Storage::delete($person->image->url);
-            }
-            $person->delete();
+            $tag->delete();
             $this->alert('success', 'Eliminación con éxito');
         }catch(Exception $e){
             $this->alert('error', 

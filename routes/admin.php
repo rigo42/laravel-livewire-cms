@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\About\ClientController;
 use App\Http\Controllers\Admin\About\TeamController;
 use App\Http\Controllers\Admin\Blog\BlogCategoryController;
 use App\Http\Controllers\Admin\Blog\BlogController;
+use App\Http\Controllers\Admin\Blog\BlogTagController;
 use App\Http\Controllers\Admin\Contact\ContactController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Portfolio\EvidenceController;
@@ -32,5 +33,5 @@ Route::resource('/contacto', ContactController::class)->parameters(['contacto' =
 //Blog
 Route::resource('/blogs', BlogController::class)->parameters(['blogs' => 'blog'])->names('blog');
 Route::resource('/blog-categorias', BlogCategoryController::class)->parameters(['blog-categorias' => 'category'])->names('blog-category');
-Route::resource('/blog-etiquetas', ContactController::class)->parameters(['blog-etiquetas' => 'tag'])->names('blog-tag');
+Route::resource('/blog-etiquetas', BlogTagController::class)->parameters(['blog-etiquetas' => 'tag'])->names('blog-tag');
 

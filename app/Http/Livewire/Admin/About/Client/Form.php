@@ -43,7 +43,7 @@ class Form extends Component
         $this->client->save();
         $this->saveImage();
         $this->client = new Client();
-        $this->alert('success', 'cliente agregado con exito');
+        $this->alert('success', 'cliente agregado con éxito');
         $this->emit('render');
     }
 
@@ -52,7 +52,7 @@ class Form extends Component
         $this->validateImage();
         $this->client->update();
         $this->saveImage();
-        $this->alert('success', 'cliente actualizado con exito');
+        $this->alert('success', 'cliente actualizado con éxito');
         $this->emit('render');
     }
 
@@ -101,6 +101,6 @@ class Form extends Component
             $this->client->image = null;
         }
         $this->reset('imageTmp');
-        $this->alert('success', 'Imagen eliminada con exito');
+        $this->alert('success', 'Imagen eliminada con éxito');
     }
 }

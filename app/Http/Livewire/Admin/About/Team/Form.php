@@ -47,7 +47,7 @@ class Form extends Component
         $this->person->save();
         $this->saveImage();
         $this->person = new Team();
-        $this->alert('success', 'Persona agregada al equipo con exito');
+        $this->alert('success', 'Persona agregada al equipo con éxito');
         $this->emit('render');
     }
 
@@ -56,7 +56,7 @@ class Form extends Component
         $this->validateImage();
         $this->person->update();
         $this->saveImage();
-        $this->alert('success', 'Persona actualizada con exito');
+        $this->alert('success', 'Persona actualizada con éxito');
         $this->emit('render');
     }
 
@@ -105,7 +105,7 @@ class Form extends Component
             $this->person->image = null;
         }
         $this->reset('imageTmp');
-        $this->alert('success', 'Imagen eliminada con exito');
+        $this->alert('success', 'Imagen eliminada con éxito');
     }
     
 }

@@ -1,5 +1,5 @@
 <div>
-    <form class="form">
+    <div class="form">
         <div wire:ignore.self class="d-flex flex-column scroll-y me-n7 pe-7">
 
             @include('components.errors')
@@ -19,7 +19,7 @@
             </div>
 
         </div>
-    </form>
+    </div>
 
     <div class="text-center pt-15">
         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">

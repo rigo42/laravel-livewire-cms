@@ -50,7 +50,7 @@ class Form extends Component
         $this->evidence->save();
         $this->saveImage();
         $this->saveImages();
-        $this->flash('success', 'Servicio agregado al equipo con exito');
+        $this->flash('success', 'Servicio agregado al equipo con éxito');
         return redirect()->route('admin.portfolio.show', $this->evidence);
     }
 
@@ -61,7 +61,7 @@ class Form extends Component
         $this->evidence->update();
         $this->saveImage();
         $this->saveImages();
-        $this->flash('success', 'Servicio actualizado con exito');
+        $this->flash('success', 'Servicio actualizado con éxito');
         return redirect()->route('admin.portfolio.show', $this->evidence);
     }
 
@@ -132,7 +132,7 @@ class Form extends Component
             $this->evidence->image = null;
         }
         $this->reset('imageTmp');
-        $this->alert('success', 'Imagen eliminada con exito');
+        $this->alert('success', 'Imagen eliminada con éxito');
     }
 
     public function removeImages($id){
@@ -144,6 +144,6 @@ class Form extends Component
         
         $img->delete();
 
-        $this->alert('success', 'Imagen eliminada con exito');
+        $this->alert('success', 'Imagen eliminada con éxito');
     }
 }

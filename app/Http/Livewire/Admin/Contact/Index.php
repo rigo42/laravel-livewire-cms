@@ -25,7 +25,7 @@ class Index extends Component
     {
         try{
             $contact->delete();
-            $this->alert('success', 'Eliminación con exito');
+            $this->alert('success', 'Eliminación con éxito');
         }catch(Exception $e){
             $this->alert('error', 
                 'Ocurrio un error en la eliminación: '.$e->getMessage(), 
