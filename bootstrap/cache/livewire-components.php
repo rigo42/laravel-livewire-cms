@@ -3,6 +3,8 @@
   'admin.about.client.index' => 'App\\Http\\Livewire\\Admin\\About\\Client\\Index',
   'admin.about.team.form' => 'App\\Http\\Livewire\\Admin\\About\\Team\\Form',
   'admin.about.team.index' => 'App\\Http\\Livewire\\Admin\\About\\Team\\Index',
+  'admin.contact.form' => 'App\\Http\\Livewire\\Admin\\Contact\\Form',
+  'admin.contact.index' => 'App\\Http\\Livewire\\Admin\\Contact\\Index',
   'admin.portfolio.form' => 'App\\Http\\Livewire\\Admin\\Portfolio\\Form',
   'admin.portfolio.index' => 'App\\Http\\Livewire\\Admin\\Portfolio\\Index',
   'admin.portfolio.show' => 'App\\Http\\Livewire\\Admin\\Portfolio\\Show',

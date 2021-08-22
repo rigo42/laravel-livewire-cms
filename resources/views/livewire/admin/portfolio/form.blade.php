@@ -99,7 +99,8 @@
                                     </div>
                                     <label
                                         wire:click.prevent="removeImages({{ $imgs->id }})"
-                                        wire:loading.class="spinner-border spinner-border-sm align-middle ms-2" wire:target="removeImages"
+                                        wire:loading.class="spinner-border spinner-border-sm align-middle ms-2" 
+                                        wire:target="removeImages({{ $imgs->id }})"
                                         title="Remover imagen"
                                         class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow image-edit">
                                         <i class="bi bi-x fs-2"></i>
