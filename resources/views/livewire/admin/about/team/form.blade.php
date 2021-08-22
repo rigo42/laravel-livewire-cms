@@ -2,10 +2,10 @@
     <form class="form">
         <div wire:ignore.self class="d-flex flex-column scroll-y me-n7 pe-7">
 
-            @include('component.errors')
+            @include('components.errors')
 
             <div class="fv-row mb-7">
-                <label class="d-block fw-bold fs-6 mb-5">Imágen</label>
+                <label class="required d-block fw-bold fs-6 mb-5">Imágen</label>
                 <div class="image-input image-input-outline">
                     <div class="image-input-wrapper w-125px h-125px" @if ($imageTmp) style="background-image: url('{{ $imageTmp->temporaryUrl() }}')"
 @elseif($person->image)
@@ -35,7 +35,7 @@
 
                     @if ($imageTmp || $person->image)
                         <label wire:click.prevent="removeImage()"
-                            wire:loading.class="spinner spinner-primary spinner-sm" wire:target="removeImage"
+                            wire:loading.class="spinner-border spinner-border-sm align-middle ms-2" wire:target="removeImage"
                             title="Remover imagen"
                             class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow image-remove">
                             <i class="bi bi-x fs-2"></i>

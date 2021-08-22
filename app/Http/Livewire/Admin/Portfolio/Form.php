@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Admin\Portfolio;
 
+use App\Models\Image as ModelsImage;
+use App\Models\ImageMultiple;
 use App\Models\Portfolio;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -18,6 +20,7 @@ class Form extends Component
 
     //Tools
     public $imageTmp;
+    public $imagesTmp = [];
 
     public function mount(Portfolio $evidence, $method){
         $this->evidence = $evidence;
@@ -46,6 +49,7 @@ class Form extends Component
         $this->slug();
         $this->evidence->save();
         $this->saveImage();
+        $this->saveImages();
         $this->flash('success', 'Servicio agregado al equipo con exito');
         return redirect()->route('admin.portfolio.show', $this->evidence);
     }
@@ -56,6 +60,7 @@ class Form extends Component
         $this->slug();
         $this->evidence->update();
         $this->saveImage();
+        $this->saveImages();
         $this->flash('success', 'Servicio actualizado con exito');
         return redirect()->route('admin.portfolio.show', $this->evidence);
     }
@@ -72,7 +77,6 @@ class Form extends Component
             ]);
         }
     } 
-
 
     public function saveImage(){
         if($this->imageTmp){
@@ -99,6 +103,25 @@ class Form extends Component
         }
     }
 
+    public function saveImages(){
+        if($this->imagesTmp){
+
+            foreach($this->imagesTmp as $imgs){
+
+                $url = $imgs->store('public/evidence');
+
+                $this->evidence->imageMultiples()->create([
+                    'url' => $url,
+                ]);
+    
+                $imageOptimized = Image::make(Storage::get($url))
+                        ->widen(800)
+                        ->encode('webp', 80);
+                Storage::put($url, (string) $imageOptimized);
+            }
+        }
+    }
+
     public function removeImage(){
         if($this->evidence->image){
             if(Storage::exists($this->evidence->image->url)){
@@ -109,6 +132,18 @@ class Form extends Component
             $this->evidence->image = null;
         }
         $this->reset('imageTmp');
+        $this->alert('success', 'Imagen eliminada con exito');
+    }
+
+    public function removeImages($id){
+        $img = ImageMultiple::findOrFail($id);
+        
+        if(Storage::exists($img->url)){
+            Storage::delete($img->url);
+        }
+        
+        $img->delete();
+
         $this->alert('success', 'Imagen eliminada con exito');
     }
 }

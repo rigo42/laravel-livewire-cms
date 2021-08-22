@@ -34,8 +34,8 @@ class Portfolio extends Model
     }
 
     //1:N
-    public function images(){
-        return $this->morphMany(Image::class, 'imageable');
+    public function imageMultiples(){
+        return $this->morphMany(ImageMultiple::class, 'imageable');
     }
 
     public function dateToString(){

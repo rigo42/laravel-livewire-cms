@@ -32,6 +32,20 @@
                             <div class="fs-5 fw-bold text-gray-600">
                                 {!! $evidence->body !!}
                             </div>
+                            <div class="fs-5 mb-7">
+                                @foreach ($evidence->imageMultiples()->get() as $imgs)
+                                <div class="image-input image-input-outline px-5">
+                                    <div 
+                                        class="image-input-wrapper w-250px h-200px"  
+                                        style="background-image: url('{{ Storage::url($imgs->url) }}')" 
+                                        
+                                    >
+                                    </div>
+                                </div>
+                                @endforeach
+                                
+                            </div>
+
                         </div>
                     </div>
                 </div>
