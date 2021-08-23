@@ -7,13 +7,20 @@ use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\Blog\BlogTagController;
 use App\Http\Controllers\Admin\Contact\ContactController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Permission\PermissionController;
 use App\Http\Controllers\Admin\Portfolio\EvidenceController;
+use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Admin\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 //Dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+//Roles
+Route::resource('roles', RoleController::class)->parameters((['roles' => 'role']))->names('role');
+//Permissions
+Route::resource('permisos', PermissionController::class)->parameters((['permisos' => 'permission']))->names('permission');
 
 //User
 Route::resource('usuarios', UserController::class)->parameters(['usuarios' => 'user'])->names('user');

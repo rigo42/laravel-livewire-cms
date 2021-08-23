@@ -16,6 +16,8 @@
   'admin.portfolio.form' => 'App\\Http\\Livewire\\Admin\\Portfolio\\Form',
   'admin.portfolio.index' => 'App\\Http\\Livewire\\Admin\\Portfolio\\Index',
   'admin.portfolio.show' => 'App\\Http\\Livewire\\Admin\\Portfolio\\Show',
+  'admin.role.form' => 'App\\Http\\Livewire\\Admin\\Role\\Form',
+  'admin.role.index' => 'App\\Http\\Livewire\\Admin\\Role\\Index',
   'admin.service.form' => 'App\\Http\\Livewire\\Admin\\Service\\Form',
   'admin.service.index' => 'App\\Http\\Livewire\\Admin\\Service\\Index',
   'admin.service.show' => 'App\\Http\\Livewire\\Admin\\Service\\Show',
