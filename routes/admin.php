@@ -9,10 +9,23 @@ use App\Http\Controllers\Admin\Contact\ContactController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Portfolio\EvidenceController;
 use App\Http\Controllers\Admin\Service\ServiceController;
+use App\Http\Controllers\Admin\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 //Dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+//User
+Route::resource('usuarios', UserController::class)->parameters(['usuarios' => 'user'])->names('user');
+Route::prefix('usuarios/{user}')->group(function () {
+    //Password
+    Route::get('password', [UserController::class, 'password'])->name('user.password');
+    //Permission
+    Route::get('permisos', [UserController::class, 'permission'])->name('user.permission');
+    //Logs
+    Route::get('logs', [UserController::class, 'log'])->name('user.log');
+});
+
 
 //About
 Route::resource('/equipo', TeamController::class)->parameters(['equipo' => 'person'])->names('team');

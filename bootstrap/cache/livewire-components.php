@@ -19,4 +19,9 @@
   'admin.service.form' => 'App\\Http\\Livewire\\Admin\\Service\\Form',
   'admin.service.index' => 'App\\Http\\Livewire\\Admin\\Service\\Index',
   'admin.service.show' => 'App\\Http\\Livewire\\Admin\\Service\\Show',
+  'admin.user.form' => 'App\\Http\\Livewire\\Admin\\User\\Form',
+  'admin.user.index' => 'App\\Http\\Livewire\\Admin\\User\\Index',
+  'admin.user.password' => 'App\\Http\\Livewire\\Admin\\User\\Password',
+  'admin.user.permission' => 'App\\Http\\Livewire\\Admin\\User\\Permission',
+  'admin.user.show' => 'App\\Http\\Livewire\\Admin\\User\\Show',
 );

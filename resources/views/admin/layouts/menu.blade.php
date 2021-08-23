@@ -138,6 +138,23 @@
                 @endif
             @endif
 
+            @if (Route::has('admin.user.index'))
+                <!-- Contact -->
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Usuarios</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link {{ active('admin.user.*') }}" href="{{ route('admin.user.index') }}">
+                        <span class="menu-icon">
+                            <i class="fa fa-users"></i>
+                        </span>
+                        <span class="menu-title">Usuarios</span>
+                    </a>
+                </div>
+            @endif
+
         </div>
         <!--end::Menu-->
     </div>

@@ -20,7 +20,8 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'email_verified_at' => NULL,
-            'password' => Hash::make('12345678')
+            'password' => Hash::make('12345678'),
+            'position' => 'Programador',
         ]);
 
         $admin->assignRole('Administrador');
