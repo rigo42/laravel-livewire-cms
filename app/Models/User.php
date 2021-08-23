@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -43,6 +44,21 @@ class User extends Authenticatable
     //1:1
     public function image(){
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    //1:N
+    public function blogs(){
+        return $this->hasMany(Blog::class);
+    }
+
+    public function profile(){
+        $image = asset('assets/admin/media/avatars/blank.png');
+
+        if($this->image){
+            $image = Storage::url($this->image->url);
+        }
+
+        return $image;
     }
 
     public function dateToString(){

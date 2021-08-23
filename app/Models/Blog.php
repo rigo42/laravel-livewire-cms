@@ -43,6 +43,11 @@ class Blog extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    //N:1
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     //N:M
     public function blogCategories(){
         return $this->belongsToMany(BlogCategory::class);
@@ -51,6 +56,10 @@ class Blog extends Model
     //N:M
     public function blogTags(){
         return $this->belongsToMany(BlogTag::class);
+    }
+
+    public function comments(){
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     public function dateToString(){
