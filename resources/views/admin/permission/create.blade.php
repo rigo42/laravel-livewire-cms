@@ -1,0 +1,28 @@
+<div class="card-toolbar">
+    <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">
+            <i class="fa fa-plus"></i> Nuevo permiso
+        </button>
+    </div>
+
+    <div wire:ignore.self class="modal fade" id="modal-create" data-bs-backdrop="static" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered mw-650px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="fw-bolder">Nuevo permiso</h2>
+                    <div class="btn btn-icon btn-active-icon-primary" data-bs-dismiss="modal">
+                        <i class="fa fa-times-circle fa-4x"></i>
+                    </div>
+                </div>
+
+                <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+
+                    @livewire('admin.permission.form', ['method' => 'store'], key('create'))
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

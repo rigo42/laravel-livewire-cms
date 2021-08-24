@@ -157,6 +157,7 @@
                     <span class="menu-arrow"></span>
                 </span>
                 <div class="menu-sub menu-sub-accordion">
+                    @can('usuarios')
                     <div class="menu-item">
                         <a class="menu-link {{ active('admin.user.*') }}" href="{{ route('admin.user.index') }}">
                             <span class="menu-bullet">
@@ -165,6 +166,8 @@
                             <span class="menu-title">Usuarios</span>
                         </a>
                     </div>
+                    @endcan
+                    @can('ajustes')
                     <div class="menu-item">
                         <a class="menu-link {{ active('admin.role.*') }}" href="{{ route('admin.role.index') }}">
                             <span class="menu-bullet">
@@ -181,6 +184,7 @@
                             <span class="menu-title">Permisos</span>
                         </a>
                     </div>
+                    @endcan
                 </div>
             </div>
 

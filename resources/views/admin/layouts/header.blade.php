@@ -71,7 +71,7 @@
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <a href="../../demo1/dist/account/overview.html" class="menu-link px-5">Contraseña</a>
+                                <a href="{{ route('admin.user.password', auth()->id()) }}" class="menu-link px-5">Contraseña</a>
                             </div>
                             <div class="separator my-2"></div>
                             
